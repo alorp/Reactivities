@@ -24,13 +24,13 @@ namespace Application.Activities
             private readonly DataContext _context;
    
 
-            public Handler(DataContext context, ILogger logger)
+            public Handler(DataContext context)
             {
                 _context = context;    
             }
 
             public async System.Threading.Tasks.Task<List<Activity>> Handle(Query request, CancellationToken cancellationToken)
-                {      
+            {      
                 return await _context.Activities.ToListAsync(cancellationToken);
             }
         }
